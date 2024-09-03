@@ -34,8 +34,14 @@ Academic Integrity Statement:
 
 
 def main():
-    resistance = round(float(input("Input the resistance of the first resistor [Ω]: ")),0)
-    print(resistance)
+    r1 = round(float(input("Input the resistance of the first resistor [Ω]: ")),0)
+    r2 = 19.5
+    parallel_resistance = 1/(1/r1 + 1/r2)
+    series_resistance = r1 + r2
+
+    print("Type              First         Second         Total Resistance")
+    print(f"Parallel{r1:14.1f} Ω{r2:12.1f} Ω{parallel_resistance:13.1f} Ω") #width modifers to make the formatting a bit better, just manually adding the spaces also works
+    print(f"series  {r1:14.1f} Ω{r2:12.1f} Ω{series_resistance:13.1f} Ω")
 
 
 
