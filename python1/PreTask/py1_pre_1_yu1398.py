@@ -38,6 +38,12 @@ def main():
     a = 5
     b = 9 
     c = 2
+    equation1 = a * pow(b,2) + math.sin(c)
+    equation2 = (math.pi/c) - math.factorial(b)
+    equation3 = pow(b,3) + (c/4) + math.asin(1)
+    print("equation 1: " + str(round(equation1,4)))
+    print("equation 2: " + str(round(equation2,4)))
+    print("equation 3: " + str(round(equation3,4)))
     
     
 
