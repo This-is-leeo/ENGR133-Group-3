@@ -34,7 +34,7 @@ Academic Integrity Statement:
 
 
 def main():
-    r1 = round(float(input("Input the resistance of the first resistor [Ω]: ")),0)
+    r1 = float(input("Input the resistance of the first resistor [Ω]: "))
     r2 = 19.5
     parallel_resistance = 1/(1/r1 + 1/r2)
     series_resistance = r1 + r2
