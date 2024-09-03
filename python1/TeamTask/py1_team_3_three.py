@@ -36,7 +36,7 @@ Academic Integrity Statement:
 """ Write any import statements here (and delete this line)."""
 
 def turbine_power(rho, A, Cp, v):
-    power = 0.5 * rho * A * Cp * v**3
+    power = 0.5 * rho * A * Cp * v**3   
     return power
 
 def accumulated_energy(power, t):
@@ -48,7 +48,13 @@ def vehicle_distance(energy, epsilon):
     return distance
 
 def main():
-    print("hihi") 
+    testCase1 = [1.2,400,0.3,6,1,0.007]
+    testCase2 = [1.2,2500,0.3,4,5,0.007]
+    rho, A, Cp, v, t, epsilon =  testCase1 #change the case for different output
+    power = turbine_power(rho, A, Cp, v)
+    energy = accumulated_energy(power, t)
+    distance = vehicle_distance(energy, epsilon)
+    print(f"The turbine generates {power} W, which accumulated {energy} Wh of energy. The vehicle has a range of {distance} km")
 
 if __name__ == "__main__":
     main()
