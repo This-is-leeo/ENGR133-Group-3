@@ -48,7 +48,7 @@ print(maxNum)
 
 #problem 9
 #excel:
-# =RANGE()
+# =MAX() - MIN()
 range = max(testList)-min(testList)
 print(range)
 
