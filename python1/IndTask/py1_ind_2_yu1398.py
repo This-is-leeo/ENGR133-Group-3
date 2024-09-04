@@ -31,11 +31,11 @@ Academic Integrity Statement:
 """
 
 """ Write any import statements here (and delete this line)."""
-
+from math import *
 
 def main():
     r1 = float(input("Input the resistance of the first resistor [Ω]: "))
-    r2 = 19.5
+    r2 = e ** 2 * sqrt(7)
     parallel_resistance = 1/(1/r1 + 1/r2)
     series_resistance = r1 + r2
 
