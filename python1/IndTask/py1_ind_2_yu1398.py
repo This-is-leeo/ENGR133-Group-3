@@ -6,7 +6,7 @@ Description:
     Replace this line with a description of your program.
 
 Assignment Information: Assignment: (5.3.2)(auto grader doesnt work!!!!!)
-    Assignment:     7 
+    Assignment:     Py1 Ind 2 
     Team ID:        LC18, team 3
     Author:         yu1398@purdue.edu
     Date:           9/3/2024
