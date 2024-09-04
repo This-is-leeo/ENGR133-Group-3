@@ -5,8 +5,8 @@ Semester: e.g. Fall 2024
 Description:
     Replace this line with a description of your program.
 
-Assignment Information:
-    Assignment:     5.3.2
+Assignment Information: Assignment: (5.3.2)(auto grader doesnt work!!!!!)
+    Assignment:     7 
     Team ID:        LC18, team 3
     Author:         yu1398@purdue.edu
     Date:           9/3/2024
@@ -41,7 +41,7 @@ def main():
 
     print("Type              First         Second         Total Resistance")
     print(f"Parallel{r1:14.1f} Ω{r2:12.1f} Ω{parallel_resistance:13.1f} Ω") #width modifers to make the formatting a bit better, just manually adding the spaces also works
-    print(f"series  {r1:14.1f} Ω{r2:12.1f} Ω{series_resistance:13.1f} Ω")
+    print(f"Series  {r1:14.1f} Ω{r2:12.1f} Ω{series_resistance:13.1f} Ω")
 
 
 
