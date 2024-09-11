@@ -6,10 +6,10 @@ Description:
     Replace this line with a description of your program.
 
 Assignment Information:
-    Assignment:     e.g. 5.2.1 Py1 Team 1 (for Python 1 Team task 1)
-    Team ID:        ### - ## (e.g. LC1 - 01; for section LC1, team 01)
-    Author:         Name, login@purdue.edu
-    Date:           e.g. 08/29/2024
+    Assignment:     6.2.3 Team Task 3
+    Team ID:        018 - 03
+    Author:         Leo Yu yu1398@purdue.edu, Megan Puntney  mpuntney@purdue.edu, Sarah Kaufman kaufman62@purdue.edu, Megan Raupp mraupp@purdue.edu
+    Date:           09/10/2024
 
 Contributors:
     Name, login@purdue [repeat for each]
