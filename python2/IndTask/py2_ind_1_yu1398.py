@@ -6,9 +6,9 @@ Description:
     Replace this line with a description of your program.
 
 Assignment Information:
-    Assignment:     6.2.3 Team Task 3
+    Assignment:     6.3.1 Team Task 1
     Team ID:        018 - 03
-    Author:         Leo Yu yu1398@purdue.edu, Megan Puntney  mpuntney@purdue.edu, Sarah Kaufman kaufman62@purdue.edu, Megan Raupp mraupp@purdue.edu
+    Author:         Leo Yu yu1398@purdue.edu
     Date:           09/10/2024
 
 Contributors:
@@ -31,7 +31,15 @@ Academic Integrity Statement:
     submitting is my own original work.
 """
 
-""" Write any import statements here (and delete this line)."""
+
+
+def check_status(temperature, pressure):
+    criticalValues = [304.2, 344.14, 73.8, 137]
+    if temperature < criticalValues[0]:
+        print(f"CO2 is below the critical temperature.\nIncrease the temperature by at least {criticalValues[0] - temperature} Kelvin.")
+    elif temperature > criticalValues[1]:
+        print("Warning! Reduce the temperature!\nDecrease the temperature by at least 22.37 Kelvin.")
+        
 
 
 def main():
