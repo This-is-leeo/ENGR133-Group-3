@@ -7,11 +7,10 @@ Description:
     Replace this line with a description of your program.
 
 Assignment Information:
-    Assignment:     e.g. 5.2.1 Py1 Team 1 (for Python 1 Team task 1)
-    Team ID:        ### - ## (e.g. LC1 - 01; for section LC1, team 01)
-    Author:         Name, login@purdue.edu
-    Date:           e.g. 08/29/2024
-
+    Assignment:     6.2.3 Py2 Team 3 main
+    Team ID:        018 - 03 
+    Author:         Leo Yu yu1398@purdue.edu, Megan Puntney  mpuntney@purdue.edu, Sarah Kaufman kaufman62@purdue.edu, Megan Raupp mraupp@purdue.edu
+    Date:           09/03/2024
 Contributors:
     Name, login@purdue [repeat for each]
 
@@ -31,12 +30,9 @@ Academic Integrity Statement:
     another student access to my code.  The project I am
     submitting is my own original work.
 """
-
-""" Write any import statements here (and delete this line)."""
-
 from math import pi
 from py2_team_3_heater_3 import heater
-from py2_team_3_turbinepower_3 import turbine_power
+from py2_team_3_turbine_power_3 import turbine_power
 
 def main():
     bl = 50
@@ -50,6 +46,7 @@ def main():
     print(f'The amount of heat output by the heater is {heatGenerated:.1f} J')
 
     #comments!
+    #Hey guys, I need more then 48 character of comments, so I am gonna to write the alphabet here! oh wait...
 
 
 if __name__ == "__main__":

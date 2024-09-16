@@ -31,20 +31,45 @@ Academic Integrity Statement:
     submitting is my own original work.
 """
 
-
+#guys, I love commenting on my programs becasue I can leave a message to whoever reads my code <3
 
 def check_status(temperature, pressure):
-    criticalValues = [304.2, 344.14, 73.8, 137]
+    criticalValues = [304.2, 344.14, 73.8, 137] #constant 
+    criticalValues[3] *= 0.95
+    criticalValues[1] *= 0.95
+    if temperature == criticalValues[0] or pressure == criticalValues[2]:
+        print("CO2 is at the critical point.")
+        return
+
     if temperature < criticalValues[0]:
         print(f"CO2 is below the critical temperature.\nIncrease the temperature by at least {criticalValues[0] - temperature} Kelvin.")
     elif temperature > criticalValues[1]:
-        print("Warning! Reduce the temperature!\nDecrease the temperature by at least 22.37 Kelvin.")
-        
+        print(f"Warning! Reduce the temperature!\nDecrease the temperature by at least {0 - criticalValues[1] + temperature:.2f} Kelvin.")
+    else:
+        print('Temperature is within safe operating coditions.')
+
+    if pressure < criticalValues[2]:
+        print(f"CO2 is below the critical pressure.\nIncrease the pressure by at least {criticalValues[2] - pressure} Kelvin.")
+    elif pressure > criticalValues[3]:
+        print(f"Warning! Reduce the pressure!\nDecrease the pressure by at least {0 - criticalValues[3] + pressure:.2f} Kelvin.")
+    else:
+        print('Pressure is within safe operating coditions.')
+    return
+
+
 
 
 def main():
-    """Write your code here (and delete this line)."""
-
+    temp = float(input("Enter the temperature of carbon dioxide in Kelvin: "))
+    #the temp check thingy, (hopefully there is enough comments, i will come back)
+    if temp < 0:
+        print("Error: Please enter a valid temperature.")
+    else:
+        pres = float(input("Enter the pressure of carbon dioxide in bar: "))
+        if pres < 0:
+            print("Error: Please enter a valid pressure.")
+        else:
+            check_status(temp, pres)
 
 if __name__ == "__main__":
     main()
