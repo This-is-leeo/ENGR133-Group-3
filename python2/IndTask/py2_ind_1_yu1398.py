@@ -42,18 +42,18 @@ def check_status(temperature, pressure):
         return
 
     if temperature < criticalValues[0]:
-        print(f"CO2 is below the critical temperature.\nIncrease the temperature by at least {criticalValues[0] - temperature} Kelvin.")
+        print(f"CO2 is below the critical temperature.\nIncrease the temperature by at least {criticalValues[0] - temperature:.2f} Kelvin.")
     elif temperature > criticalValues[1]:
         print(f"Warning! Reduce the temperature!\nDecrease the temperature by at least {0 - criticalValues[1] + temperature:.2f} Kelvin.")
     else:
-        print('Temperature is within safe operating coditions.')
+        print('Temperature is within safe operating conditions.')
 
     if pressure < criticalValues[2]:
-        print(f"CO2 is below the critical pressure.\nIncrease the pressure by at least {criticalValues[2] - pressure} Kelvin.")
+        print(f"CO2 is below the critical pressure.\nIncrease the pressure by at least {criticalValues[2] - pressure:.2f} bar.")
     elif pressure > criticalValues[3]:
-        print(f"Warning! Reduce the pressure!\nDecrease the pressure by at least {0 - criticalValues[3] + pressure:.2f} Kelvin.")
+        print(f"Warning! Reduce the pressure!\nDecrease the pressure by at least {0 - criticalValues[3] + pressure:.2f} bar.")
     else:
-        print('Pressure is within safe operating coditions.')
+        print('Pressure is within safe operating conditions.')
     return
 
 
