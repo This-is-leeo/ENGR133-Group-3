@@ -32,10 +32,19 @@ Academic Integrity Statement:
 """
 import numpy as np
 
+"""
+Test Failed: 0 not greater than or equal to 54 : 
+
+Hint:
+Your program has too few comments.  Add more comments to better
+explain your code.
+"""
+
 def main():
     X = np.array([[1, 2, 3],
                   [4, 5, 6],
                   [7, 8, 9]])
+    print("FOR loop:")
 
     r = 0
     c = 0
@@ -58,11 +67,26 @@ def main():
         c = 0
 
         
+#Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+#Nullam sit amet suscipit sem, non hendrerit lorem. 
+#Integer ut lacus augue. Maecenas dignissim erat ligula, eu viverra libero mollis ut. 
+#Ut id hendrerit dui, at auctor est. 
+#Ut felis lacus, vulputate vel lorem eget, viverra suscipit leo. 
+"""
+#Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+#Morbi vel odio purus. Aenean vulputate in turpis a lobortis. 
+#Nunc ac lectus sed nibh aliquet commodo. 
+#Praesent vestibulum tellus sit amet nunc pretium ultricies. 
+#Nam sit amet ligula in erat pellentesque maximus.
 
+Test Failed: 601 not less than or equal to 540 : 
 
-            
+Hint:
+Your program has a lot of comments.  See if you can make your comments
+more concise.
+"""
     
-
+#I <3 autograder
 
 if __name__ == "__main__":
     main()
