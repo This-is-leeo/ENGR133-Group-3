@@ -8,7 +8,7 @@ Description:
     took.
 
 Assignment Information:
-    Assignment:     Py3 Team 3
+    Assignment:     Py3 Team 3 b
     Team ID:        LC 18 - 03
     Author:         Leo Yu, yu1398@purdue.edu
                     Megan Puntney, mpuntney@purdue.edu
@@ -38,8 +38,7 @@ Academic Integrity Statement:
 import sys
 #print(sys.getrecursionlimit())
 sys.setrecursionlimit(3000)
-
-from python3.TeamTask.py3_team_2_b_3 import my_factorial
+from py3_team_2_b_3 import my_factorial
 import math
 
 def maclaurinSeries(x,n):
@@ -57,11 +56,15 @@ def main():
         approx = maclaurinSeries(x, n)
         error = (approx - actual)/actual
         #print(f'approx: {approx}, actual: {actual}, error: {error}, n: {n}')
-    print(f'Term needed: {n+1}')
+    print(f'Terms needed: {n+1}')
     print(f"Actual value: {actual:.2f}")
     print(f"Approximate value: {approx:.2f}")
     print(f"Target error threshold: {targetError:.1f}%")
-    
+ #Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+#Nullam sit amet suscipit sem, non hendrerit lorem. 
+#Integer ut lacus augue. Maecenas dignissim erat ligula, eu viverra libero mollis ut. 
+#Ut id hendrerit dui, at auctor est. 
+#Ut felis lacus, vulputate vel lorem eget, viverra suscipit leo.    
 
 
 if __name__ == "__main__":

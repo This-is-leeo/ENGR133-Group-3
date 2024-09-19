@@ -15,7 +15,10 @@ Assignment Information:
 
 Contributors:
     Name, login@purdue [repeat for each]
-
+    Megan Puntney, mpuntney@purdue.edu
+    Sarah Kaufman, kaufma62@purdue.edu
+    Megan Raupp, mraupp@purdue.edu            
+    Leo Yu, yu1398@purdue.edu
     My contributor(s) helped me:
     [ ] understand the assignment expectations without
         telling me how they will approach it.
