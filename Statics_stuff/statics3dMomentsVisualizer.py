@@ -4,27 +4,28 @@ from mpl_toolkits.mplot3d import Axes3D
 
 
 
-matrix1 = np.array([-0.2,0.16])
-matrix2 = np.array([400, 693])
+point1 = np.array([0,0,0])
+point2 = np.array([80,0,300])
+point3 = np.array([-240,240,0])
 
 fig1 = plt.figure()
 ax1 = fig1.add_subplot(111, projection='3d')
 
-ax1.quiver(0,0,0,1,1,1, color = 'r')
+ax1.quiver(point1[0], point1[2], point1[1], point2[0], point2[2], point2[1], color = 'r')
+ax1.quiver(point2[0], point2[2], point2[1], point3[0], point3[2], point3[1], color = 'g')
 
 ax1.set_xlabel('X Axis')
-ax1.set_ylabel('Y Axis')
-ax1.set_zlabel('Z Axis')
+ax1.set_ylabel('Z Axis')
+ax1.set_zlabel('Y Axis')
 ax1.set_title('3D Vector Plot')
 
 
 
-ax1.set_xlim([0, 5])
-ax1.set_ylim([0, 5])
-ax1.set_zlim([0, 5])
+ax1.set_xlim([-240,80])
+ax1.set_zlim([0, 80])
+ax1.set_ylim([0, 300])    
 
 
-ans = np.cross(matrix1, matrix2)
 plt.show()
 
 print(f"answer: {ans}") 

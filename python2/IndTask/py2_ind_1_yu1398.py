@@ -6,7 +6,7 @@ Description:
     Replace this line with a description of your program.
 
 Assignment Information:
-    Assignment:     6.3.1 Team Task 1
+    Assignment:     py2 ind 1
     Team ID:        018 - 03
     Author:         Leo Yu yu1398@purdue.edu
     Date:           09/10/2024
