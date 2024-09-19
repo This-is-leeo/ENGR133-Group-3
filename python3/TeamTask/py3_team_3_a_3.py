@@ -3,14 +3,16 @@ Course Number: ENGR 13300
 Semester: Fall 2024
 
 Description:
-    Program computes the factorial of a number given by user, and prints it out.
+    Program uses the Maclaurin series to approximate e^x with specified values 
+    of n and x. It then prints the percent error of the estimated value with 
+    respect to the actual value. 
 
 Assignment Information:
-    Assignment:     Py3 Team 3
+    Assignment:     Py3 Team 3 a 
     Team ID:        LC 18 - 03
-    Author:         Megan Puntney, mpuntney@purdue.edu
+    Author:         Leo Yu, yu1398@purdue.edu
+                    Megan Puntney, mpuntney@purdue.edu
                     Megan Raupp, mraupp@purdue.edu
-                    Leo Yu, yu1398@purdue.edu
                     Sarah Kaufman, kaufman62@purdue.edu
     Date:           09/17/2024
 
@@ -35,23 +37,25 @@ Academic Integrity Statement:
 """
 
 """ Write any import statements here (and delete this line)."""
+import sys
+#print(sys.getrecursionlimit())
+sys.setrecursionlimit(3000)
 
-def my_factorial(n):
-    if n < 0:
-        print("error! n < 0")
-        return 0
-    return 1 if n == 0 else n * my_factorial(n-1)
-    
+from python3.TeamTask.py3_team_2_b_3 import my_factorial
+import math
+def maclaurinSeries(x,n):
+    return 1 if n == 0 else (x ** n) / my_factorial(n) + maclaurinSeries(x,n - 1)
+
 def main():
+    n = int(input("Enter the value of n: "))
+    x = float(input("Enter the value of x: "))
+    actual = math.exp(x)
+    approx = maclaurinSeries(x, n)
+    error = (approx - actual)/actual
+    print(f"Actual value: {actual:.2f}")
+    print(f"Approximate value: {approx:.2f}")
+    print(f"Error: {error * 100}%")
 
-    easy_factorial = lambda x: 1 if x == 0 else x * easy_factorial(x-1)
-    #creating a factorial function without defining it outside of main, just a useless flex
-
-    n = int(input("Enter a number: "))
-    if n < 0:
-        print("Error 999 [Negative input].")
-    else:
-        print(f"The Factorial of {n} is {my_factorial(n)}")
 
 if __name__ == "__main__":
     main()

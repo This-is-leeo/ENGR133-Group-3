@@ -35,9 +35,11 @@ Academic Integrity Statement:
     another student access to my code.  The project I am
     submitting is my own original work.
 """
+import sys
+#print(sys.getrecursionlimit())
+sys.setrecursionlimit(3000)
 
-""" Write any import statements here (and delete this line)."""
-from py3_team_2_3 import my_factorial
+from python3.TeamTask.py3_team_2_b_3 import my_factorial
 import math
 
 def maclaurinSeries(x,n):
@@ -46,7 +48,7 @@ def maclaurinSeries(x,n):
 def main():
     
     x = float(input("Enter the value of x: "))
-    targetError = float(input("Enter the value of x : "))
+    targetError = float(input("Enter the target error threshold: "))
     error = 100
     n = 0
     actual = math.exp(x)
@@ -54,11 +56,11 @@ def main():
         n += 1
         approx = maclaurinSeries(x, n)
         error = (approx - actual)/actual
-        print(f'approx: {approx}, actual: {actual}, error: {error}, n: {n}')
-    
+        #print(f'approx: {approx}, actual: {actual}, error: {error}, n: {n}')
+    print(f'Term needed: {n+1}')
     print(f"Actual value: {actual:.2f}")
     print(f"Approximate value: {approx:.2f}")
-    print(f"Error: {error * 100}%")
+    print(f"Target error threshold: {targetError:.1f}%")
     
 
 
