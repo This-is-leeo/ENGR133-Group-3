@@ -52,8 +52,8 @@ def main():
             #add all values
             #print(line)
         """ The following code generates the random color showned in the website, but apperently if you include this it becomes too long :/ """
-        #colors = np.random.rand((len(x_value))) #create a random color array
-        plt.scatter(x_value, y_value) #, c=colors, cmap = 'plasma')
+        colors = np.random.rand((len(x_value))) #create a random color array
+        plt.scatter(x_value, y_value , c=colors, cmap = 'plasma')
         #set proper titles etc
         plt.xlabel('Time (s)')
         plt.ylabel('Original Data * 4')
