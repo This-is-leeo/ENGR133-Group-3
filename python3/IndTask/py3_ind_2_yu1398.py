@@ -30,20 +30,34 @@ Academic Integrity Statement:
     another student access to my code.  The project I am
     submitting is my own original work.
 """
-import numpy as np
-from math import sqrt
-
-
-
 def main():
     invalidInput = lambda: print('Error: Input a positive integer')
+    factorial = lambda n: 1 if n == 0 else n * factorial(n-1)
+    approx_sinx_over_x = lambda x,n : x if n == 0 else (pow(-1, n) * pow(x, 2 * n + 1)/((2 * n + 1) * factorial(2 * n + 1))) + approx_sinx_over_x(x, n - 1)
     lowerLimit = float(input('Enter the lower limit of integration: '))
-    upperLimit = float(nput('Enter the upper limit of integration: '))
+    upperLimit = float(input('Enter the upper limit of integration: '))
     if (convergence := int(input('Enter the number of decimal places for convergence: '))) < 0:
         invalidInput()
-    if (maxTerm := int(input('Enter the maximum number of terms: '))
-
-
+        exit()
+    if (maxTerm := int(input('Enter the maximum number of terms: '))) < 0:
+        invalidInput()
+        exit()
+    print('Approximations:')
+    n = 0
+    count = 0
+    realValue = round(approx_sinx_over_x(upperLimit, maxTerm + 10) - approx_sinx_over_x(lowerLimit, maxTerm + 10), convergence)
+    while True:
+        x = round(approx_sinx_over_x(upperLimit, n) - approx_sinx_over_x(lowerLimit, n), convergence)
+        print(f'n = {n}: sum = {x}')
+        if x - realValue == 0: count += 1
+        if n+1 >= maxTerm:
+            print(f'Error: The approximation did not converge to {convergence} decimal places with only {maxTerm} terms.')
+            exit()
+        if count == 3: break
+        n += 1
+    print(f'The integral from {lowerLimit} to {upperLimit} is estimated to be {realValue}.')
+    print(f'Total number of terms: {n+1}')
+        
 
 if __name__ == "__main__":
     main()
