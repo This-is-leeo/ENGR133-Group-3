@@ -20,7 +20,7 @@ Academic Integrity Statement:
     submitting is my own original work.
 """
 
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt 
 
 from CQ2_utils import (
     get_location_in_rectangle,
