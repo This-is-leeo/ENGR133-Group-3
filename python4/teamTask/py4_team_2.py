@@ -39,6 +39,9 @@ def calculateAge(age,days):
     daysPerYear = 365.242199
     return age + days/daysPerYear
 
+def yearToSeconds(years):
+    return round(years * 365.242199 * 24 * 3600)
+
 def main():
     #define Path (doesn't need to be in the flow chart)
     currentFolder = os.path.dirname(os.path.abspath(__file__)) 
@@ -49,7 +52,7 @@ def main():
     ageInYears = float(input('Enter your age in whole years:\n'))
     daysSinceBirthday = float(input('Enter the days elapsed since your last birthday:\n'))
     exactAge = calculateAge(ageInYears,daysSinceBirthday)
-    ageInSeconds = round(exactAge * 365.242199 * 24 * 3600)
+    ageInSeconds = yearToSeconds(exactAge)
 
     with open(outputPath, 'w') as output:
         output.write(f'{firstName} {lastName}\n')
