@@ -15,7 +15,7 @@ Assignment Information:
     Date:           9/26/2024
 
 Contributors:
-    Name, login@purdue [repeat for each]
+
 
     My contributor(s) helped me:
     [ ] understand the assignment expectations without
@@ -45,7 +45,7 @@ def yearToSeconds(years):
 def main():
     #define Path (doesn't need to be in the flow chart)
     currentFolder = os.path.dirname(os.path.abspath(__file__)) 
-    outputPath = os.path.join(currentFolder,'py4_team2_3.txt')
+    outputPath = os.path.join(currentFolder,'py4_team_2_3.txt')
     #input from users
     lastName = input('Enter your last name:\n')
     firstName = input('Enter your first name:\n')
