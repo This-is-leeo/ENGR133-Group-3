@@ -1,0 +1,1 @@
+grayscale_landscape.jpeg: Brightness: 0.00, Red Content: 0.00
