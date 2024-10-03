@@ -105,7 +105,7 @@ def generate_visualizations(images):
     plt.xlabel('Intensity')  # Label the x-axis
     plt.ylabel('Frequency')  # Label the y-axis
     plt.legend()  # Display the legend
-    plt.savefig('Histogram.png')  # Show the plot
+    plt.savefig(os.path.join(current_folder,'Histogram.png'))  # Show the plot
     plt.show()
     
 def main():
