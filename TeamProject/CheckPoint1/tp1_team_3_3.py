@@ -3,16 +3,16 @@ Course Number: ENGR 13300
 Semester: Fall 2024
 
 Description:
-    Program gets image fle from user and prepares it for message extraction.
+    Program converts a binary string into ASCII text.
 
 Assignment Information:
-    Assignment:     9.2.1 Team Project Task 1
+    Assignment:     9.2.1 Team Project Task 3
     Team ID:        018 - 03
     Author:         Leo Yu, yu1398@purdue.edu
                     Megan Puntney, mpuntney@purdue.edu
                     Megan Raupp, mraupp@purdue.edu
                     Sarah Kaufman, kaufman62@purdue.edu
-    Date:           10/01/2024
+    Date:           10/03/2024
 
 Contributors:
     Name, login@purdue [repeat for each]
@@ -34,24 +34,33 @@ Academic Integrity Statement:
     submitting is my own original work.
 """
 
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-import os
+from tp1_team_2_3 import *
 
-def importImage(image_name = None):
-    current_folder = os.path.dirname(os.path.abspath(__file__))
-    if image_name == None: image_name = input("Enter the path of the image you want to load: ")
-    image_path = os.path.join(current_folder, image_name)
-    return mpimg.imread(image_path),image_name
-
-def visualize_image(img,image_name):
-    print(f'Below is the img_array output of {image_name}:')
-    plt.imshow(img)
-    plt.show()
-
+def convert_to_list(extracted_message):
+    return [extracted_message[i:i+8] for i in range(0, len(extracted_message), 8)]
+def convert_text(extracted_message = None):  
+    extracted_message = convert_to_list(extracted_message)   
+    ans = ''
+    for i in extracted_message:
+        i = int(i,2)
+        ans += chr(i)  
+    print(f'Converted Text: {ans}')
+    return ans
 def main():
-    visualize_image(importImage())
+    """
+    binary_number = input("Enter the binary message: ")
+    convert_text(binary_number)
+    for the sample userinput
+    """
+    img,image_message = importImage()
     
+    if (extracted_message := extract_message(img)) != None:
+        visualize_image(img, image_message)
+        convert_text(extracted_message)
+    else:
+        visualize_image(img, image_message)
+        print('Start or end sequence not found in the image.')
+
 
 if __name__ == "__main__":
     main()

@@ -3,7 +3,7 @@ Course Number: ENGR 13300
 Semester: Fall 2024
 
 Description:
-    Program extracts binary data  of eahc pixel's value in an image.
+    Program extracts binary data of each pixel's value in an image.
 
 Assignment Information:
     Assignment:     9.2.1 Team Project Task 2
@@ -39,25 +39,43 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import os
 import numpy as np
-from tp1_team_1_3 import importImage
+from tp1_team_1_3 import importImage,visualize_image
 
+def to_binary(str):
+    binary_value = ''
+    for i in str:
+        binary_value += format(ord(i) , '08b')
+    return binary_value
+
+def extract_message(img, start_value = None, end_value = None):
+    start_value = input("Enter the start sequence: ")
+    end_value = input("Enter the end sequence: ")
+
+    flattend_image = img.flatten()
+    lsb_values = []
+    for i in flattend_image:
+        i *= 255
+        i = int(i)
+        i = format(i, '08b')
+        lsb_values.append(int(i[-1]))
+    lsb_str = ''.join( str(n) for n in lsb_values)
+    binary_of_start = to_binary(start_value)
+    binary_of_end = to_binary(end_value)
+    if binary_of_start in lsb_str and binary_of_end in lsb_str:
+        encrypted_starting_value = lsb_str.index(binary_of_start) + len(binary_of_start)
+        lsb_str = lsb_str[encrypted_starting_value:]
+        encrypted_end_value = lsb_str.index(binary_of_end)
+        encrypted_message = lsb_str[:encrypted_end_value]
+        print(f'Extracted Message: {encrypted_message}')
+        return encrypted_message
+    else:
+        return None
+    
 def main():
-    img = importImage()
-    start_value = 7#int(input("Enter the start sequence: "))
-    end_value = 700#int(input("Enter the end sequence: "))
-
-    i = 0
-    r = 0
-    print(img)
-    # for row in img:
-    #    c = 0
-    #    for column in row:
-    #        print(column)
-    #        if i > start_value:
-    #            pass
-               
-           
-
+    img,image_message = importImage()
+   
+    if extract_message(img) == None:
+        print('Start or end sequence not found in the image.')
 
 if __name__ == "__main__":
     main()

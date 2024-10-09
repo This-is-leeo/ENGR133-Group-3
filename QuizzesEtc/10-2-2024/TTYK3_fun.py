@@ -3,16 +3,16 @@ Course Number: ENGR 13300
 Semester: Fall 2024
 
 Description:
-    Program gets image fle from user and prepares it for message extraction.
-
+    This function reads data from a file and returns it as a numpy array.
+    
 Assignment Information:
-    Assignment:     9.2.1 Team Project Task 1
-    Team ID:        018 - 03
+    Assignment:     TTYK #3
+    Team ID:        018
     Author:         Leo Yu, yu1398@purdue.edu
                     Megan Puntney, mpuntney@purdue.edu
                     Megan Raupp, mraupp@purdue.edu
                     Sarah Kaufman, kaufman62@purdue.edu
-    Date:           10/01/2024
+    Date:           10/3/2024
 
 Contributors:
     Name, login@purdue [repeat for each]
@@ -34,24 +34,36 @@ Academic Integrity Statement:
     submitting is my own original work.
 """
 
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
+import numpy as np
 import os
+current_folder = os.path.dirname(os.path.abspath(__file__))
 
-def importImage(image_name = None):
-    current_folder = os.path.dirname(os.path.abspath(__file__))
-    if image_name == None: image_name = input("Enter the path of the image you want to load: ")
-    image_path = os.path.join(current_folder, image_name)
-    return mpimg.imread(image_path),image_name
+def read_data(file_in ):
+    """
+    This function reads data from a file and returns it as a numpy array.
 
-def visualize_image(img,image_name):
-    print(f'Below is the img_array output of {image_name}:')
-    plt.imshow(img)
-    plt.show()
+    Parameters:
+    file_in (string): The name of the file to read from.
 
-def main():
-    visualize_image(importImage())
+    Returns:
+    data_out (numpy array): The data from the file as a numpy array.
+    """
+    # Initialize the data_in list
+    data_in = []
     
+    # Open the file as read only using the with context manager
+    with open(os.path.join(current_folder, file_in), 'r') as file:
 
-if __name__ == "__main__":
-    main()
+        # Iterate through each line in
+        for line in file:
+
+            # Split the line into a list of integers and append to data_in
+            row = list(map(int, line.strip().split(',')))
+
+            # Append the row to data_in
+            data_in.append(row)
+
+    # Convert the data_in list to a numpy array
+    data_out = np.array(data_in)
+    
+    return data_out

@@ -6,7 +6,7 @@ Description:
     Replace this line with a description of your program.
 
 Assignment Information:
-    Assignment:     8.3.1 Ind Task 1
+    Assignment:     8.3.2 Ind Task 2
     Team ID:        LC18 3
     Author:         Leo Yu yu1398@purdue.edu
     Date:           9/28/2024
