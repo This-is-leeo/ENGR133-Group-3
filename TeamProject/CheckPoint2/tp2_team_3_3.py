@@ -42,7 +42,7 @@ def encryptMessageInImage(binary_message, input_image_path, output_image_path):
     image_shape = list(input_image.shape)
     if not checkGrayscale(input_image):
         if image_shape[2] == 4:
-            image_shape[2] = 3
+            image_shape[2] = 3x 
                 #why do this class hate us!
     total_bits = 1
     for i in image_shape:

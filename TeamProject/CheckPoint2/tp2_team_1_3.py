@@ -1,6 +1,6 @@
 """
 Course Number: ENGR 13300
-Semester: e.g. Fall 2024
+Semester: Fall 2024
 
 Description:
     Replace this line with a description of your program.
@@ -41,6 +41,8 @@ from tp2_3_fun import *
 def compare_image(input_file_name_1 = None, input_file_name_2 = None, output_file_name = 'diff.png'):
     image1 = importImage(input_file_name_1)
     image2 = importImage(input_file_name_2)
+    image1 = image1[:,:,:3]
+    image2 = image2[:,:,:3]
     
     if checkGrayscale(image1) != checkGrayscale(image2):
         print('Cannot compare images in different modes (RGBA and L).')
