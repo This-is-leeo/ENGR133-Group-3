@@ -42,7 +42,7 @@ def encryptMessageInImage(binary_message, input_image_path, output_image_path):
     image_shape = list(input_image.shape)
     if not checkGrayscale(input_image):
         if image_shape[2] == 4:
-            image_shape[2] = 3x 
+            image_shape[2] = 3
                 #why do this class hate us!
     total_bits = 1
     for i in image_shape:
@@ -64,7 +64,7 @@ def encryptMessageInImage(binary_message, input_image_path, output_image_path):
                     output_image[row,pixel] = int(binary_value_of_bit, 2)
                                     
         pil_image = Image.fromarray(output_image, mode = 'L')
-        pil_image.save(os.path.join(current_folder, output_image_path))
+        pil_image.save(os.path.join(current_folder, 'output' output_image_path))
         return output_image_path
     else:
         output_image = input_image[:,:,:3]
@@ -80,7 +80,7 @@ def encryptMessageInImage(binary_message, input_image_path, output_image_path):
                         output_image[row,pixel,bit] = int(binary_value_of_bit, 2)
                                     
         pil_image = Image.fromarray(output_image, mode = 'RGB')
-        pil_image.save(os.path.join(current_folder, 'output', output_image_path))
+        pil_image.save(os.path.join(current_folder, 'images', output_image_path))
         return output_image
     
         
@@ -93,19 +93,19 @@ def main():
     ending_sequence = input('Enter the end sequence: ')
     input_image_path = input('Enter the path of the image: ')
     output_image_path = input('Enter the path for the encoded image: ')
-    """
-    plain_text = 'hello'
-    key = 'Beau'
-    starting_sequence = '007'
-    ending_sequence = '700'
-    input_image_path = 'ref_col.png'
-    output_image_path = 'ref_col_v.png'
-    """
+
+    # plain_text = 'hello'
+    # key = 'Beau'
+    # starting_sequence = '007'
+    # ending_sequence = '700'
+    # input_image_path = 'ref_col.png'
+    # output_image_path = 'ref_col_v.png'
+    
     binary_message = encryptMessageToBinary(plain_text, key, starting_sequence, ending_sequence, printout = False)
     encrypted_image = encryptMessageInImage(binary_message, input_image_path, output_image_path)
     encryptMessageToBinary(plain_text, key, starting_sequence, ending_sequence)
-    if encrypted_image != None:
-        print(f'Message successfully encoded and saved to: {output_image_path}')
+    visualize_image(encrypted_image)
+    print(f'Message successfully encoded and saved to: {output_image_path}')
 
 
 if __name__ == "__main__":

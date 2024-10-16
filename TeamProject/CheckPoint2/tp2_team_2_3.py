@@ -53,10 +53,10 @@ def vigenereCipher(text, key):
                 decrypted_values.append(chr((text_to_num[i] + key_to_num[i]) % 26 + ord('A')))
             else:
                 decrypted_values.append(chr((text_to_num[i] + key_to_num[i]) % 26 + ord('a')))
-        elif text_to_num[i] == ' ':
-            decrypted_values.append(' ')
-        else:
+        elif text_to_num[i].isdigit():
             decrypted_values.append((int(text_to_num[i]) + key_to_num[i]) % 10)
+        else:
+            decrypted_values.append(text_to_num[i])
 
     return ''.join(str(i) for i in decrypted_values)
 

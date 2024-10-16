@@ -41,8 +41,8 @@ from tp2_3_fun import *
 def compare_image(input_file_name_1 = None, input_file_name_2 = None, output_file_name = 'diff.png'):
     image1 = importImage(input_file_name_1)
     image2 = importImage(input_file_name_2)
-    image1 = image1[:,:,:3]
-    image2 = image2[:,:,:3]
+    if  not checkGrayscale(image1): image1 = image1[:,:,:3]
+    if  not checkGrayscale(image2): image2 = image2[:,:,:3]
     
     if checkGrayscale(image1) != checkGrayscale(image2):
         print('Cannot compare images in different modes (RGBA and L).')
@@ -87,7 +87,10 @@ def compare_image(input_file_name_1 = None, input_file_name_2 = None, output_fil
 
 def main():
     #visualize_image(importImage('ref_col.png'))
-    if not compare_image():
+    first_path = input('Enter the path of your first image: ')
+    second_path = input('Enter the path of your second image: ')
+    output_path = input('Enter the path for the output image: ')
+    if not compare_image(first_path, second_path, output_path):
         print('The images are different.')
     else:
         print("The images are the same.")
