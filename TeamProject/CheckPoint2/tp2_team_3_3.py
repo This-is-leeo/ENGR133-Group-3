@@ -64,7 +64,7 @@ def encryptMessageInImage(binary_message, input_image_path, output_image_path):
                     output_image[row,pixel] = int(binary_value_of_bit, 2)
                                     
         pil_image = Image.fromarray(output_image, mode = 'L')
-        pil_image.save(os.path.join(current_folder, 'output' output_image_path))
+        pil_image.save(os.path.join(current_folder, output_image_path))
         return output_image_path
     else:
         output_image = input_image[:,:,:3]
@@ -80,7 +80,7 @@ def encryptMessageInImage(binary_message, input_image_path, output_image_path):
                         output_image[row,pixel,bit] = int(binary_value_of_bit, 2)
                                     
         pil_image = Image.fromarray(output_image, mode = 'RGB')
-        pil_image.save(os.path.join(current_folder, 'images', output_image_path))
+        pil_image.save(os.path.join(current_folder, output_image_path))
         return output_image
     
         
