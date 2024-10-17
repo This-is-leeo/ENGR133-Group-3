@@ -9,7 +9,7 @@ def vigenereCipherToString(text, key):
     key = (key * (int(len(text)/len(key)) + 1))[:len(text)]
     #convert to numbers
     text_to_num = [ord(char) - ord('A') if ord(char) - ord('A') >= 0 and ord(char) - ord('A') < 26 else char for char in text.upper()]
-    key_to_num = [ord(char) - ord('A') if ord(char) - ord('A') >= 0 and ord(char) - ord('A') < 26 else int(char) for char in key]
+    key_to_num = [ord(char) - ord('A') if not char.isdigit() and not char.isspace() else int(char) if char.isdigit() else ord(char) for char in key]
     encrypted_values = []
     for i in range(len(text_to_num)):
         if isinstance(text_to_num[i], int):
@@ -62,12 +62,10 @@ XOR Cipher
 """
 def xorCiphertoString(text, key):
     key = (key * (int(len(text)/len(key)) + 1))[:len(text)]
-    text_to_num = [ord(char) if ord(char) - ord('A') >= 0 and ord(char) - ord('A') < 26 or ord(char) - ord('a') >= 0 and ord(char) - ord('a') <26  else char for char in text]
-    key_to_num = [ord(char) if ord(char) - ord('A') >= 0 and ord(char) - ord('A') < 26 else char for char in key]
-
+    text_to_num = [ord(char) for char in text]
+    key_to_num = [ord(char) for char in key]
+    #BIG OOPSIE!!  if ord(char) - ord('A') >= 0 and ord(char) - ord('A') < 26 or ord(char) - ord('a') >= 0 and ord(char) - ord('a') < 26  else char 
     encrypter_values = []
-    print(text_to_num)
-    print(key_to_num)
     for i in range(len(text)):
         if isinstance(text_to_num[i], int):
             binary_of_text_letter = str(format(int(text_to_num[i]),'08b'))
@@ -78,7 +76,6 @@ def xorCiphertoString(text, key):
                     new_binary_value += '0'
                 else:
                     new_binary_value += '1'
-            print(new_binary_value)
             encrypter_values.append(chr(int(new_binary_value, 2)))
         else:
             encrypter_values.append(text[i])
@@ -86,12 +83,10 @@ def xorCiphertoString(text, key):
 
 def xorCipherDecryption(text, key):
     key = (key * (int(len(text)/len(key)) + 1))[:len(text)]
-    text_to_num = [ord(char) if ord(char) - ord('A') >= 0 and ord(char) - ord('A') < 26 or ord(char) - ord('a') >= 0 and ord(char) - ord('a') <26  else char for char in text]
-    key_to_num = [ord(char) if ord(char) - ord('A') >= 0 and ord(char) - ord('A') < 26 else char for char in key]
+    text_to_num = [ord(char) for char in text]
+    key_to_num = [ord(char) for char in key]
 
     encrypter_values = []
-    print(text_to_num)
-    print(key_to_num)
     for i in range(len(text)):
         if isinstance(text_to_num[i], int):
             binary_of_text_letter = str(format(int(text_to_num[i]),'08b'))
@@ -102,11 +97,10 @@ def xorCipherDecryption(text, key):
                     new_binary_value += '0'
                 else:
                     new_binary_value += '1'
-            print(new_binary_value)
+            #print(new_binary_value)
             encrypter_values.append(chr(int(new_binary_value, 2)))
         else:
             encrypter_values.append(text[i])
     return ''.join(str(i) for i in encrypter_values)
 
 
-print(caesarCipherDecryption('Khoor', 3))

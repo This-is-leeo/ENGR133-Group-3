@@ -81,6 +81,7 @@ def compare_image(input_file_name_1 = None, input_file_name_2 = None, output_fil
                     identical = False
 
     visualize_image(difference_image, save_path=output_file_name)
+
     return identical
                     
     
