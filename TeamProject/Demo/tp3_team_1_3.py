@@ -12,8 +12,6 @@ Assignment Information:
     Date:           10/12/2024
 
 Contributors:
-    mixuan pan 
-    panFORGOTNUMBER@purdue.edu
 
     My contributor(s) helped me:
     [ ] understand the assignment expectations without

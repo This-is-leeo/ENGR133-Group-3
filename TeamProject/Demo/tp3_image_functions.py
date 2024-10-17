@@ -103,3 +103,11 @@ def compare_image(input_file_name_1 = None, input_file_name_2 = None, output_fil
         else:
             print("The images are the same.")
     return identical
+
+def convertToText(extracted_message = None):  
+    extracted_message = [extracted_message[i:i+8] for i in range(0, len(extracted_message), 8)]   
+    ans = ''
+    for i in extracted_message:
+        i = int(i,2)
+        ans += chr(i)  
+    return ans

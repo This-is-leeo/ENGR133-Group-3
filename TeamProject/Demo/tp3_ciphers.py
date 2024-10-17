@@ -8,19 +8,46 @@ def vigenereCipherToString(text, key):
     #convert key to match length of text
     key = (key * (int(len(text)/len(key)) + 1))[:len(text)]
     #convert to numbers
-    text_to_num = [ord(char) - ord('A') if ord(char) - ord('A') >= 0 and ord(char) - ord('A') < 26 else char for char in text.upper()]
-    key_to_num = [ord(char) - ord('A') if not char.isdigit() and not char.isspace() else int(char) if char.isdigit() else ord(char) for char in key]
+    text_to_num = [ord(char) - ord('A') if char.isalpha() else char if char.isdigit() else ord(char) for char in text.upper()]
+    key_to_num = [ord(char) - ord('A') if char.isalpha() else int(char) if char.isdigit() else ord(char) for char in key]
     encrypted_values = []
     for i in range(len(text_to_num)):
         if isinstance(text_to_num[i], int):
             if text[i].isupper():
                 encrypted_values.append(chr((text_to_num[i] + key_to_num[i]) % 26 + ord('A')))
-            else:
+            elif text[i].islower():
                 encrypted_values.append(chr((text_to_num[i] + key_to_num[i]) % 26 + ord('a')))
-        elif text_to_num[i] == ' ':
-            encrypted_values.append(' ')
+            else:
+                encrypted_values.append(chr(text_to_num[i]))
         else:
             encrypted_values.append((int(text_to_num[i]) + key_to_num[i]) % 10)
+    return ''.join(str(i) for i in encrypted_values)
+
+def vigenereCipherDecryption(text, key):
+    #to Uppercase
+    key = key.upper()
+    #convert key to match length of text
+    key = (key * (int(len(text)/len(key)) + 1))[:len(text)]
+    #convert to numbers
+    text_to_num = [ord(char) - ord('A') if char.isalpha() else char if char.isdigit() else ord(char) for char in text.upper()]
+    key_to_num = [ord(char) - ord('A') if char.isalpha() else int(char) if char.isdigit() else ord(char) for char in key]
+    encrypted_values = []
+    for i in range(len(text_to_num)):
+        if isinstance(text_to_num[i], int):
+            if text[i].isupper():
+                if (temp_value := (text_to_num[i] - key_to_num[i]) % 26 + ord('A')) < 0:
+                    temp_value += 26
+                encrypted_values.append(chr(temp_value))
+            elif text[i].islower():
+                if (temp_value := (text_to_num[i] - key_to_num[i]) % 26 + ord('a')) < 0:
+                    temp_value += 26
+                encrypted_values.append(chr(temp_value))
+            else:
+                encrypted_values.append(chr(text_to_num[i]))
+        else:
+            if (temp_value := (int(text_to_num[i]) - key_to_num[i]) % 10) < 0:
+                    temp_value += 10
+            encrypted_values.append(temp_value)
     return ''.join(str(i) for i in encrypted_values)
 
 """
@@ -36,8 +63,8 @@ def caesarCiphertoString(text, key):
                 encrypted_values.append(chr((text_to_num[i] + key) % 26 + ord('A')))
             else:
                 encrypted_values.append(chr((text_to_num[i] + key) % 26 + ord('a')))
-        elif text_to_num[i] == ' ':
-            encrypted_values.append(' ')
+        else:
+            encrypted_values.append(text_to_num[i])
     return ''.join(str(i) for i in encrypted_values)
 
 def caesarCipherDecryption(text, key):
@@ -54,8 +81,8 @@ def caesarCipherDecryption(text, key):
                 if (temp_value := (text_to_num[i] - key) % 26 + ord('a')) < 0:
                     temp_value += 26
                 encrypted_values.append(chr(temp_value))
-        elif text_to_num[i] == ' ':
-            encrypted_values.append(' ')
+        else:
+            encrypted_values.append(text_to_num[i])
     return ''.join(str(i) for i in encrypted_values)
 """
 XOR Cipher
@@ -103,4 +130,10 @@ def xorCipherDecryption(text, key):
             encrypter_values.append(text[i])
     return ''.join(str(i) for i in encrypter_values)
 
-
+if __name__ == "__main__":
+    print(xorCipherDecryption(xorCiphertoString('I Hate This Class 123!!', 'HE!P M!3'), 'HE!P M!3'))
+    print(caesarCipherDecryption(caesarCiphertoString('I Hate This Class 123!!', '3'), '3'))
+    print(vigenereCipherDecryption(vigenereCipherToString('I Hate This Class 123!!', 'HE!P M3'), 'HE!P M3'))
+    print(vigenereCipherDecryption(vigenereCipherToString('Math 101', 'is fun'), 'is fun'))
+    print(vigenereCipherDecryption('Usmm 489', 'is fun'))
+    
