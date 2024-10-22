@@ -53,15 +53,14 @@ def extractMessageFromImage(image_path, start_sequence, end_sequence):
     else:
         return None
 def main():
-    cipher = 'vigenere'
-    key = 'is fun'
-    #cipher = input("Enter the cipher you want to use for encryption: ").strip().lower()
-    # key = input("Enter the key for the cipher: ")
-    # start_seq = input("Enter the start sequence: ")
-    # end_seq = input("Enter the end sequence: ")
-    # input_image_path = input("Enter the path of the input image: ").strip()
-    print(vigenereCipherDecryption('Usmm 489', 'is fun'))
-    extracted_binary = extractMessageFromImage('ref_col_v.png', '31', '&&')
+    
+    cipher = input("Enter the cipher you want to use for encryption: ").strip().lower()
+    key = input("Enter the key for the cipher: ")
+    start_seq = input("Enter the start sequence: ")
+    end_seq = input("Enter the end sequence: ")
+    input_image_path = input("Enter the path of the input image: ").strip()
+    
+    extracted_binary = extractMessageFromImage(input_image_path, start_seq, end_seq)
     extracted_binary_message = convertToText(extracted_binary)
     print(f'Converted Binary Text: {extracted_binary_message}')
     if(cipher == 'xor'):
@@ -71,7 +70,6 @@ def main():
     elif(cipher) == 'caesar':
         extracted_message = caesarCipherDecryption(extracted_binary_message, key)
     print(f'Converted text: {extracted_message}')
-    print(ord(' '))
 
 
 

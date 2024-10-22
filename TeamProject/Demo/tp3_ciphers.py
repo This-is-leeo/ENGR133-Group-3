@@ -134,6 +134,6 @@ if __name__ == "__main__":
     print(xorCipherDecryption(xorCiphertoString('I Hate This Class 123!!', 'HE!P M!3'), 'HE!P M!3'))
     print(caesarCipherDecryption(caesarCiphertoString('I Hate This Class 123!!', '3'), '3'))
     print(vigenereCipherDecryption(vigenereCipherToString('I Hate This Class 123!!', 'HE!P M3'), 'HE!P M3'))
-    print(vigenereCipherDecryption(vigenereCipherToString('Math 101', 'is fun'), 'is fun'))
+    print(vigenereCipherToString('Math 101', 'is fun'))
     print(vigenereCipherDecryption('Usmm 489', 'is fun'))
     
